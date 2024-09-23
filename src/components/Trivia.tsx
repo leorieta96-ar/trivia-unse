@@ -44,20 +44,20 @@ const Trivia: React.FC<TriviaProps> = ({
 
   useEffect(() => {
     if (answered) {
-      // Muestra el loader durante 10 segundos
+    
       setLoading(true);
       const timer = setTimeout(() => {
         setLoading(false);
         setSelectedOption(null);
         setAnswered(false);
         setCurrentQuestion(currentQuestion + 1);
-      }, 1000); // 10 segundos
+      }, 1000);
 
-      return () => clearTimeout(timer); // Limpia el timeout cuando el componente se desmonta o cuando cambia el estado
+      return () => clearTimeout(timer);
     }
   }, [answered, currentQuestion]);
 
-  // Guarda el tiempo de inicio cuando el componente se renderiza
+
   useEffect(() => {
     const start = Date.now();
     setStartTime(start);

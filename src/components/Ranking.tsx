@@ -22,16 +22,16 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   "&:nth-of-type(odd)": {
     backgroundColor: theme.palette.action.hover,
   },
-  // hide last border
+  
   "&:last-child td, &:last-child th": {
     border: 0,
   },
 }));
 
 const HighlightedTableRow = styled(StyledTableRow)(({ theme }) => ({
-  backgroundColor: theme.palette.secondary.light, // Color destacado
+  backgroundColor: theme.palette.secondary.light, 
   "&:hover": {
-    backgroundColor: theme.palette.secondary.dark, // Cambia el color al pasar el ratón
+    backgroundColor: theme.palette.secondary.dark, 
   },
 }));
 
@@ -46,7 +46,7 @@ interface Player {
 
 interface RankingProps {
   ranking: Player[];
-  highlightId: string; // El id que quieres resaltar
+  highlightId: string;
 }
 
 const Ranking: React.FC<RankingProps> = ({ ranking, highlightId }) => {

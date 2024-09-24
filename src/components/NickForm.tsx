@@ -14,8 +14,6 @@ const NickForm: React.FC<NickFormProps> = ({ onSubmit }) => {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    console.log(e.target.name);
-    console.log(e.target.value);
     const { value, name } = e.target;
     setValues({
       ...values,

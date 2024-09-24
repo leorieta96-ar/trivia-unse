@@ -59,7 +59,6 @@ const Ranking: React.FC<RankingProps> = ({ ranking, highlightId }) => {
             <StyledTableCell>#</StyledTableCell>
             <StyledTableCell align="right">Nick</StyledTableCell>
             <StyledTableCell align="right">DNI</StyledTableCell>
-            <StyledTableCell align="right">Intentos</StyledTableCell>
             <StyledTableCell align="right">
               Respuestas Correctas (20)
             </StyledTableCell>
@@ -77,7 +76,7 @@ const Ranking: React.FC<RankingProps> = ({ ranking, highlightId }) => {
                 </StyledTableCell>
                 <StyledTableCell align="left">{player.name}</StyledTableCell>
                 <StyledTableCell align="center">
-                  {player.attempts}
+                  {player.dni}
                 </StyledTableCell>
                 <StyledTableCell align="center">
                   {player.correct_answers}
@@ -93,9 +92,6 @@ const Ranking: React.FC<RankingProps> = ({ ranking, highlightId }) => {
                 </StyledTableCell>
                 <StyledTableCell align="left">{player.name}</StyledTableCell>
                 <StyledTableCell align="left">{player.dni}</StyledTableCell>
-                <StyledTableCell align="center">
-                  {player.attempts}
-                </StyledTableCell>
                 <StyledTableCell align="center">
                   {player.correct_answers}
                 </StyledTableCell>

@@ -97,8 +97,9 @@ const Trivia: React.FC<TriviaProps> = ({
       <Typography
         variant={"h4"}
         textAlign="center"
-        color="antiquewhite"
+        color="black"
         gutterBottom
+        fontFamily="Montserrat"
         fontSize={{ xs: "1.5rem", lg: "2.125rem" }}
       >
         Pregunta {currentQuestion + 1}: {questions[currentQuestion].question}
@@ -111,9 +112,10 @@ const Trivia: React.FC<TriviaProps> = ({
               onClick={() => handleOptionClick(option)}
               fullWidth
               size="large"
-              className={!answered ? "pulse-button" : ""}
               disabled={answered}
               style={{
+                textTransform: "inherit",
+                fontFamily: "Montserrat",
                 backgroundColor:
                   answered && option.correct
                     ? "green"

@@ -37,6 +37,7 @@ const HighlightedTableRow = styled(StyledTableRow)(({ theme }) => ({
 
 interface Player {
   id: number;
+  dni: string;
   name: string;
   uuid: string;
   attempts: number;
@@ -57,9 +58,10 @@ const Ranking: React.FC<RankingProps> = ({ ranking, highlightId }) => {
           <TableRow>
             <StyledTableCell>#</StyledTableCell>
             <StyledTableCell align="right">Nick</StyledTableCell>
+            <StyledTableCell align="right">DNI</StyledTableCell>
             <StyledTableCell align="right">Intentos</StyledTableCell>
             <StyledTableCell align="right">
-              Respuestas Correctas
+              Respuestas Correctas (20)
             </StyledTableCell>
             <StyledTableCell align="right">Tiempo</StyledTableCell>
           </TableRow>
@@ -90,6 +92,7 @@ const Ranking: React.FC<RankingProps> = ({ ranking, highlightId }) => {
                   {index + 1}
                 </StyledTableCell>
                 <StyledTableCell align="left">{player.name}</StyledTableCell>
+                <StyledTableCell align="left">{player.dni}</StyledTableCell>
                 <StyledTableCell align="center">
                   {player.attempts}
                 </StyledTableCell>

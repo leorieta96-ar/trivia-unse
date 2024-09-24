@@ -2,26 +2,41 @@ import React, { useState } from "react";
 import { Button, TextField, Box, Typography } from "@mui/material";
 
 interface NickFormProps {
-  onSubmit: (name: string) => void;
+  onSubmit: ({ name, dni }: { name: string; dni: string }) => void;
 }
 
 const NickForm: React.FC<NickFormProps> = ({ onSubmit }) => {
-  const [nickInput, setNickInput] = useState<string>("");
+  const [values, setValues] = useState({
+    name: "",
+    dni: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    console.log(e.target.name);
+    console.log(e.target.value);
+    const { value, name } = e.target;
+    setValues({
+      ...values,
+      [name]: value,
+    });
+  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (nickInput.trim()) {
-      onSubmit(nickInput);
+    if (values.name.trim() && values.name.trim()) {
+      onSubmit(values);
     }
   };
 
   return (
     <Box component="form" onSubmit={handleSubmit}>
       <Typography
-        variant="body1"
-        fontSize={{ xs: 11, lg: 25 }}
-        sx={{ textWrap: "nowrap" }}
-        textAlign="center"
+        variant="subtitle1"
+        fontFamily="Montserrat"
+        fontSize={{ xs: 16, lg: 23 }}
+        fontWeight="bold"
       >
         Esta trivia consta de 20 preguntas.
         <br />
@@ -32,12 +47,10 @@ const NickForm: React.FC<NickFormProps> = ({ onSubmit }) => {
         El premio se entregará a las 12.30h en el stand de la plaza Libertad
         <br />
       </Typography>
-      <br />
-      <br />
       <Typography
         variant="subtitle1"
         fontFamily="Montserrat"
-        fontSize={{ xs: 10, lg: 23 }}
+        fontSize={{ xs: 13, lg: 23 }}
       >
         Esta trivia ha sido desarrollada por el Grupo de Computación Móvil en
         colaboración con el Grupo de IA, del Instituto de Investigación en
@@ -48,8 +61,21 @@ const NickForm: React.FC<NickFormProps> = ({ onSubmit }) => {
         label="Ingresa tu Nick"
         variant="outlined"
         fullWidth
-        value={nickInput}
-        onChange={(e) => setNickInput(e.target.value)}
+        name="name"
+        value={values.name}
+        onChange={handleChange}
+        margin="normal"
+        required
+        sx={{ fontSize: 40 }}
+      />
+      <TextField
+        label="Ingresa tu DNI"
+        variant="outlined"
+        fullWidth
+        name="dni"
+        value={values.dni}
+        onChange={handleChange}
+        required
         margin="normal"
         sx={{ fontSize: 40 }}
       />

@@ -32,9 +32,15 @@ function App() {
   const [ranking, setRanking] = useState([]);
   const [showRankinkg, setShowRankinkg] = useState<boolean>(false);
 
-  const handleNickSubmit = async (name: string) => {
+  const handleNickSubmit = async ({
+    name,
+    dni,
+  }: {
+    name: string;
+    dni: string;
+  }) => {
     setNick(name);
-    const id = await servicePlayers.create(name);
+    const id = await servicePlayers.create({name, dni});
     setId(id);
     await getQuestions();
   };
@@ -66,7 +72,6 @@ function App() {
     <Container
       maxWidth="lg"
       style={{
-        height: "100vh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -77,7 +82,7 @@ function App() {
         direction="row"
         sx={{ justifyContent: "space-between", alignItems: "center" }}
       >
-        <Grid size={2}>
+        <Grid size={6}>
           <Box
             component="img"
             src="/CTI.png"
@@ -88,7 +93,7 @@ function App() {
             }}
           />
         </Grid>
-        <Grid size={2}>
+        <Grid size={6} display="flex" justifyContent="flex-end">
           <Box
             component="img"
             src="/GICM.jpeg"
@@ -104,10 +109,11 @@ function App() {
         variant="h1"
         align="center"
         gutterBottom
-        fontSize={{ xs: "5rem", md: "6rem" }}
+        fontSize={{ xs: !showTrivia ? "5rem" : "3rem", md: "6rem" }}
         fontFamily="Honk"
+        lineHeight="70px"
         sx={{
-          animation: `${pulseAnimation} 2s infinite`,
+          animation: !showTrivia ? `${pulseAnimation} 2s infinite` : "none",
         }}
       >
         Trivia

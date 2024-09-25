@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import NickForm from "./components/NickForm";
-import Trivia from "./components/Trivia";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Container,
@@ -8,9 +6,9 @@ import {
   keyframes,
   Typography,
 } from "@mui/material";
-import servicePlayers from "./services/players";
-import serviceQuestions from "./services/questions";
-import Ranking from "./components/Ranking";
+import HomePage from "./components/HomePage";
+import RankingPage from "./components/RankingPage";
+import { Route, Routes } from "react-router-dom";
 
 const pulseAnimation = keyframes`
   0% {
@@ -25,48 +23,7 @@ const pulseAnimation = keyframes`
 `;
 
 function App() {
-  const [nick, setNick] = useState<string>("");
-  const [id, setId] = useState<string>("");
-  const [questions, setQuestions] = useState([]);
   const [showTrivia, setShowTrivia] = useState<boolean>(false);
-  const [ranking, setRanking] = useState([]);
-  const [showRankinkg, setShowRankinkg] = useState<boolean>(false);
-
-  const handleNickSubmit = async ({
-    name,
-    dni,
-  }: {
-    name: string;
-    dni: string;
-  }) => {
-    setNick(name);
-    const id = await servicePlayers.create({name, dni});
-    setId(id);
-    await getQuestions();
-  };
-
-  const getQuestions = async () => {
-    const arrayQuestions = await serviceQuestions.get();
-    setQuestions(arrayQuestions);
-    setShowTrivia(true);
-  };
-
-  const handleTrivia = async ({
-    id,
-    time_played,
-    correct_answers,
-  }: {
-    id: string;
-    time_played: string;
-    correct_answers: number;
-  }) => {
-    await servicePlayers.putScore(id, {
-      correct_answers,
-      time_played,
-    });
-    setRanking(await servicePlayers.getRanking());
-    setShowRankinkg(true);
-  };
 
   return (
     <Container
@@ -121,18 +78,10 @@ function App() {
         Jornadas CTI UNSE
       </Typography>
       <Container maxWidth="md">
-        {showRankinkg ? (
-          <Ranking ranking={ranking} highlightId={id} />
-        ) : !showTrivia ? (
-          <NickForm onSubmit={handleNickSubmit} />
-        ) : (
-          <Trivia
-            id={id}
-            nick={nick}
-            questions={questions}
-            handleTivia={handleTrivia}
-          />
-        )}
+        <Routes>
+          <Route path="/" element={<HomePage setTrivia={setShowTrivia}/>} />
+          <Route path="/ranking" element={<RankingPage />} />
+        </Routes>
       </Container>
     </Container>
   );

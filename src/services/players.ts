@@ -7,6 +7,7 @@ const players = {
       .then((response) => response.data.uuid)
       .catch((error) => {
         console.error("Error en la petición:", error);
+        throw error;
       }),
 
   getRanking: () =>

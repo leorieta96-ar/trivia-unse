@@ -36,13 +36,13 @@ const NickForm: React.FC<NickFormProps> = ({ onSubmit }) => {
         fontSize={{ xs: 16, lg: 23 }}
         fontWeight="bold"
       >
-        Esta trivia consta de 20 preguntas.
+        Esta trivia consta de 20 preguntas, con 4 alternativas cada una, referidas a Software e Inteligencia Artificial.
         <br />
-        Gana quien responda más preguntas correctas en el menor tiempo.
+        Todas las respuestas encontrarás en el STAND 10, por ello te recomendamos pasar por allí antes de responder. PUEDES JUGAR SOLO UNA VEZ.
         <br />
-        Se puede jugar entre las 10 y las 12.30 h del 28 de setiembre.
+        Gana quien responda correctamente la mayor cantidad de preguntas, en el menor tiempo.
         <br />
-        El premio se entregará a las 12.30h en el stand de la plaza Libertad
+        El premio se entregará a las 12.45h en la Plaza Libertad, con tu DNI.
         <br />
       </Typography>
       <Typography
@@ -50,10 +50,7 @@ const NickForm: React.FC<NickFormProps> = ({ onSubmit }) => {
         fontFamily="Montserrat"
         fontSize={{ xs: 13, lg: 23 }}
       >
-        Esta trivia ha sido desarrollada por el Grupo de Computación Móvil en
-        colaboración con el Grupo de IA, del Instituto de Investigación en
-        Informática y Sistemas de Información de la Facultad de Ciencias Exactas
-        y Tecnologías de la UNSE
+        Ha sido desarrollada por José L. y Leandro O., estudiantes del Instituto de Investigación en Informática y Sistemas de Información de la Facultad de Ciencias Exactas y Tecnologías de la UNSE.
       </Typography>
       <TextField
         label="Ingresa tu Nick"

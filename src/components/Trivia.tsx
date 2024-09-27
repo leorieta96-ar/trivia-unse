@@ -44,7 +44,6 @@ const Trivia: React.FC<TriviaProps> = ({
 
   useEffect(() => {
     if (answered) {
-    
       setLoading(true);
       const timer = setTimeout(() => {
         setLoading(false);
@@ -56,7 +55,6 @@ const Trivia: React.FC<TriviaProps> = ({
       return () => clearTimeout(timer);
     }
   }, [answered, currentQuestion]);
-
 
   useEffect(() => {
     const start = Date.now();
@@ -87,7 +85,7 @@ const Trivia: React.FC<TriviaProps> = ({
       handleTivia({
         id,
         time_played: msToTime(timeDiff),
-        correct_answers: score,
+        correct_answers: score + 1,
       });
     }
   };

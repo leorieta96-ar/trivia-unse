@@ -36,13 +36,9 @@ const NickForm: React.FC<NickFormProps> = ({ onSubmit }) => {
         fontSize={{ xs: 16, lg: 23 }}
         fontWeight="bold"
       >
-        Esta trivia consta de 20 preguntas, con 4 alternativas cada una, referidas a Software e Inteligencia Artificial.
+        Esta trivia consta de 12 preguntas, con 4 alternativas cada una, referidas a Informática y al programa de radio Código Infinito, organizador de esta Jornada.
         <br />
-        Todas las respuestas encontrarás en el STAND 10, por ello te recomendamos pasar por allí antes de responder. PUEDES JUGAR SOLO UNA VEZ.
-        <br />
-        Gana quien responda correctamente la mayor cantidad de preguntas, en el menor tiempo.
-        <br />
-        El premio se entregará a las 12.45h en la Plaza Libertad, con tu DNI.
+        Gana quien responda correctamente la mayor cantidad de preguntas, en el menor tiempo. El premio se entregará a las 14h.
         <br />
       </Typography>
       <Typography
@@ -50,7 +46,7 @@ const NickForm: React.FC<NickFormProps> = ({ onSubmit }) => {
         fontFamily="Montserrat"
         fontSize={{ xs: 13, lg: 23 }}
       >
-        Ha sido desarrollada por José L. y Leandro O., estudiantes del Instituto de Investigación en Informática y Sistemas de Información de la Facultad de Ciencias Exactas y Tecnologías de la UNSE.
+      Ha sido desarrollada por José Leyva y Leandro Orieta, estudiantes de la Licenciatura en Sistemas de Información de la Facultad de Ciencias Exactas y Tecnologías de la UNSE.  
       </Typography>
       <TextField
         label="Ingresa tu Nick"

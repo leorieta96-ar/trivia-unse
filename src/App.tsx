@@ -39,17 +39,6 @@ function App() {
         direction="row"
         sx={{ justifyContent: "space-between", alignItems: "center" }}
       >
-        <Grid size={6}>
-          <Box
-            component="img"
-            src="/CTI.png"
-            alt="Logo Izquierdo"
-            sx={{
-              height: { xs: 50, sm: 50, md: 50, lg: 100 },
-              width: "auto",
-            }}
-          />
-        </Grid>
         <Grid size={6} display="flex" justifyContent="flex-end">
           <Box
             component="img"
@@ -75,7 +64,7 @@ function App() {
       >
         Trivia
         <br />
-        Jornadas CTI UNSE
+        "Jornada Infinita"
       </Typography>
       <Container maxWidth="md">
         <Routes>
